@@ -1,0 +1,67 @@
+<% layout('layouts/biolerplate') %>
+<%- include('../partials/navBar')  %>
+    <div class="row my-5">
+        <h1 class="text-center" >Add Product to Sell</h1>
+        <div class="col-6 mx-auto">
+
+            <form action="/product/new" method="POST" class="needs-validation" novalidate>
+
+                <div class="mb-3">
+                    <label for="naam">Name: </label>
+                    <input type="text" class="form-control" name="name" id="naam" placeholder="Name of the product" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please choose a name.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="img">Image: </label>
+                    <input type="text" class="form-control" name="img" id="img" placeholder="Image URL of the product" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please choose a image url.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="paisa">Price: </label>
+                    <input type="number" class="form-control" name="price" id="paisa" placeholder="price of the product" required>
+                    <div class="invalid-feedback">
+                        Please choose a valid price.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="desc">Description: </label><br>
+                    <textarea name="desc" id="desc" rows="2" placeholder="Description of product" required></textarea>
+                    <div class="invalid-feedback">
+                        Please choose Description.
+                    </div>
+                </div>
+                <button class="btn btn-sm btn-success" type="submit">Add Product</button>
+            </form>
+        </div>
+    </div>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    // function is called iife(immediate invoked functional expression)(turant calling , without fn name)
+    (() => {
+        'use strict'
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>

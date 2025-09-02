@@ -1,0 +1,23 @@
+<% layout('layouts/biolerplate') %>
+<%- include('../partials/navBar') %>
+<%- include('../partials/flash') %>
+
+<h1 class="text-center" >Cart</h1>
+<div class="row">
+    <% for(let i of user.cart){ %>
+        <div class="mt-3 col-lg-4">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img src="<%= i.img %>" class="card-img-top" >
+                <div class="card-body">
+                    <h5 class="card-title"><%= i.name %></h5>
+                    <h5 class="card-title"><%= i.price %></h5>
+                    <a href="/products/<%= i._id %>" class="btn btn-primary">Show</a>
+                    <a href="#" class="btn btn-success">Buy</a>
+                    <form action="/user/<%= i._id %>/<%= user._id %>/dlt?_method=DELETE" method="POST" class="d-inline-block">
+                        <button>Remove from Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>

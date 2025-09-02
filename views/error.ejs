@@ -1,0 +1,12 @@
+<% layout('./layouts/biolerplate') %>
+<%- include('./partials/navBar') %>
+<%- include('./partials/flash') %>
+<div class="my-5 mx-5" >
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong><%= error.message %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <a href="/products"><button>Click to go to Main Page</button></a>
+    </div>
+</div>

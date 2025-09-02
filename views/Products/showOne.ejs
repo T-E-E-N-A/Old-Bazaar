@@ -1,0 +1,80 @@
+<% layout('layouts/biolerplate') %> 
+<%- include('../partials/navBar') %>
+<%- include('../partials/flash') %>  
+<!-- will show msg only when flash hits success and error one of them has length -->
+
+<div class="row">
+    <div class="col-lg-6 mt-3">
+        <div class="card shadow mx-auto" style="width: 18rem">
+            <img src="<%=foundProduct.img%>" class="card-img-top" alt="..." />
+            <div class="card-body">
+                <h3 class="card-title">
+                    <%=foundProduct.name%>
+                </h3>
+                <h5 class="card-text">
+                    <%=foundProduct.price%>
+                </h5>
+                <p class="card-text">
+                    <%=foundProduct.desc%>
+                </p>
+                <form action="/user/<%= foundProduct._id %>/cart" method="POST" class="d-inline-block">
+                    <button class="btn btn-primary btn-sm my-1">Add to Cart</button>
+                </form>
+                <a href="#" class="btn btn-sm btn-success">Buy Product</a>
+                <% if(currentUser && currentUser.role==='seller'){ %>
+                    <a href="/products/<%=foundProduct._id%>/edit" class="btn btn-sm btn-info">Edit</a>
+                    <form action="/products/<%= foundProduct._id %>/dlt?_method=DELETE" method="POST">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <h3 class="display-5">Leave a Review</h3>
+        <form action="/products/<%=foundProduct._id%>/review" method="POST">
+            <fieldset class="starability-basic">
+                <legend>First rating:</legend>
+                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="rating" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="rating" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="rating" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="rating" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="rating" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
+
+            <div class="mb-3">
+                <label class="form-label" for="comment">Comment: </label>
+                <textarea class="form-control" row="3" name="comment" id="comment"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-sm btn-success">Add Review</button>
+        </form>
+        <div class="my-3">
+            <% for(let review of foundProduct.reviews){ %>
+                <div class="card mt-2">
+                    <p class="mx-2">
+                        <% if(review.createdAt){ %>
+                            <%= review.createdAt.toDateString() %>
+                        <% } %>
+                    </p>
+                    <p class="starability-result mx-3 my-0" data-rating="<%=review.rating %>">
+                        Rated: <%=review.rating %> stars
+                    </p>
+                    <div class="card-body">
+                        <p class="card-text">Comment: <%=review.comment %></p>
+                    </div>
+                    <form action="/products/<%= foundProduct._id %>/<%= review._id %>/dlt?_method=DELETE" method="POST">
+                        <button class="btn btn-primary col-lg-12" type="submit">Delete</button>
+                    </form>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
