@@ -19,6 +19,7 @@ const productRoutes = require('./routes/product')
 const reviewRoutes = require('./routes/review.route')
 const userRoutes = require('./routes/user')
 const cartRoutes = require('./routes/cart.route')
+const wishlistRoutes = require('./routes/wishlist.route')
 
 
 // added dummy data once then commented
@@ -68,6 +69,7 @@ app.use(productRoutes)
 app.use(reviewRoutes)
 app.use(userRoutes)
 app.use(cartRoutes)
+app.use(wishlistRoutes)
 
 
 // database connection which return a promise

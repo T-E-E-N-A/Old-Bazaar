@@ -6,7 +6,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">OLXX</a>
+      <a class="navbar-brand" href="#">Old-Bazaar</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/products">Home</a>
@@ -21,8 +21,9 @@
         <% if(!currentUser){ %>
             <a href="/login" class="nav-link mx-2">Login</a>
         <% }else{ %>
+            <span>Hi <%= currentUser.username %></span>
+            <a href="#" class="mx-1" ><i class="fa-solid fa-heart fa-xl" style="color: #e00b0b;"></i></a>
             <a href="/user/cart" class="nav-link mx-2">
-              <span>Hi <%= currentUser.username %></span>
               <span class="material-symbols-outlined">shopping_cart</span>
               <sub> <span class="badge bg-danger"> <%= currentUser.cart.length %> </span> </sub>
             </a>
