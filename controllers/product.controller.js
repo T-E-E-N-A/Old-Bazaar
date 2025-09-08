@@ -40,7 +40,7 @@ async function showMore(req,res){
 async function showUpdateForm(req,res){
     const id = req.params.id;
     const foundProduct = await Product.findById(id);
-    res.render('products/edit',{foundProduct})
+    res.render('Products/edit',{foundProduct})
 }
 async function updateProduct(req, res){
     try{
