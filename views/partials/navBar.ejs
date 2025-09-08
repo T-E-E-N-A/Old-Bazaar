@@ -1,4 +1,4 @@
-<% layout('layouts/biolerplate') %>
+
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container-fluid">
@@ -6,10 +6,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Old-Bazaar</a>
+      <a class="navbar-brand" href="/">Old-Bazaar</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/products">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/products">Products</a>
         </li>
         <% if(currentUser && currentUser.role==='seller'){ %>
           <li class="nav-item">
@@ -22,7 +25,7 @@
             <a href="/login" class="nav-link mx-2">Login</a>
         <% }else{ %>
             <span>Hi <%= currentUser.username %></span>
-            <a href="#" class="mx-1" ><i class="fa-solid fa-heart fa-xl" style="color: #e00b0b;"></i></a>
+            <a href="/user/wishlist" class="mx-1 nav-link" ><i class="fa-solid fa-heart fa-xl" style="color: #e00b0b;"></i></a>
             <a href="/user/cart" class="nav-link mx-2">
               <span class="material-symbols-outlined">shopping_cart</span>
               <sub> <span class="badge bg-danger"> <%= currentUser.cart.length %> </span> </sub>

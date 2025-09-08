@@ -1,49 +1,52 @@
 <% layout('layouts/biolerplate') %>
-<%- include('../partials/navBar')  %>
-    <div class="row my-5">
-        <h1 class="text-center" >Add Product to Sell</h1>
-        <div class="col-6 mx-auto">
 
-            <form action="/product/new" method="POST" class="needs-validation" novalidate>
+<div class="row my-5">
+    <h1 class="text-center mb-4">Add Product to Sell</h1>
 
-                <div class="mb-3">
-                    <label for="naam">Name: </label>
-                    <input type="text" class="form-control" name="name" id="naam" placeholder="Name of the product" required>
-                    <div class="valid-feedback">
-                        Looks good!
+    <div class="col-md-8 col-lg-6 mx-auto">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form action="/product/new" method="POST" class="needs-validation dev-form" novalidate>
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label for="naam" class="form-label">Product Name</label>
+                        <input type="text" class="form-control" name="name" id="naam" placeholder="Enter product name" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please enter a product name.</div>
                     </div>
-                    <div class="invalid-feedback">
-                        Please choose a name.
+
+                    <!-- Image URL -->
+                    <div class="mb-3">
+                        <label for="img" class="form-label">Image URL</label>
+                        <input type="url" class="form-control" name="img" id="img" placeholder="Enter image URL" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please enter a valid image URL.</div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="img">Image: </label>
-                    <input type="text" class="form-control" name="img" id="img" placeholder="Image URL of the product" required>
-                    <div class="valid-feedback">
-                        Looks good!
+
+                    <!-- Price -->
+                    <div class="mb-3">
+                        <label for="paisa" class="form-label">Price (₹)</label>
+                        <input type="number" class="form-control" name="price" id="paisa" placeholder="Enter price" required min="1">
+                        <div class="invalid-feedback">Please enter a valid price.</div>
                     </div>
-                    <div class="invalid-feedback">
-                        Please choose a image url.
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label for="desc" class="form-label">Product Description</label>
+                        <textarea class="form-control" name="desc" id="desc" rows="3" placeholder="Describe your product" required></textarea>
+                        <div class="invalid-feedback">Please enter a description.</div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="paisa">Price: </label>
-                    <input type="number" class="form-control" name="price" id="paisa" placeholder="price of the product" required>
-                    <div class="invalid-feedback">
-                        Please choose a valid price.
+
+                    <!-- Submit Button -->
+                    <div class="d-grid">
+                        <button class="btn btn-success btn-lg" type="submit">Add Product</button>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="desc">Description: </label><br>
-                    <textarea name="desc" id="desc" rows="2" placeholder="Description of product" required></textarea>
-                    <div class="invalid-feedback">
-                        Please choose Description.
-                    </div>
-                </div>
-                <button class="btn btn-sm btn-success" type="submit">Add Product</button>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
+</div>
+
 <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     // function is called iife(immediate invoked functional expression)(turant calling , without fn name)

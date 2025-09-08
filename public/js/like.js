@@ -23,7 +23,7 @@ async function like(productId,btn){
     }
     catch(error){
         // can't do res.send or render
-        console.log(error);
+        // console.log(error);
         window.location.replace('/login')
     }
 }

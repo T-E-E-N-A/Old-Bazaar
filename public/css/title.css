@@ -1,0 +1,35 @@
+/* title style */
+.old-bazaar-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    color: #198754; /* Bootstrap success green */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    letter-spacing: 2px;
+    margin-left: 40%;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    animation: fadeInDown 0.7s ease-out;
+}
+
+.old-bazaar-title::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 4px;
+    background: #198754;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

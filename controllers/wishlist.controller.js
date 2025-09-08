@@ -21,4 +21,18 @@ async function addLike(req,res){
     res.send('like done api');
 }
 
-module.exports = {addLike};
+// redirected from routes folder ---------------------get/post
+
+async function showWishList(req,res) {
+    try{
+        const user = await User.findById(req.user._id).populate('wishList');
+        return res.render('cart/wishlist',{user})
+    }
+    catch(error){
+        req.flash('error',"can't show WishList")
+        res.redirect('/login')
+    }
+}
+
+
+module.exports = {addLike , showWishList};

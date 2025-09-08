@@ -29,21 +29,20 @@ function loginForm(req,res){
 
 // it took 2 arguments in one function authenticate and normal function 
 function actualLogin(req,res){
-        req.flash('success' , 'welcome back!')
-        res.redirect('/products');
+    req.flash('success' , `welcome back ${req.user.username}!`)
+    res.redirect('/products');
+
 }
 
-async function logOut(req,res){
+let logOut = (req, res) => {
     try{
-        ()=>{
-            req.logout();
-        }
+        ()=>{ req.logout();}
         req.flash('success' , 'goodbye friends, see you again')
         res.redirect('/login');
     }
-    catch(err){
+    catch(error){
         req.flash('error','failed to logOut!!')
-        res.send(404).json({message:err.message});
+        res.render('error',{error});
     }
 }
 module.exports = {registerForm,actualRegister , loginForm , actualLogin , logOut}

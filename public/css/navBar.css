@@ -1,0 +1,86 @@
+/* Custom Navbar Enhancements */
+.navbar {
+  background-color: #ffffff; /* Light background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #2a2a2a;
+  font-size: 1.5rem;
+}
+
+.navbar-brand:hover {
+  color: #007bff;
+}
+
+.nav-link {
+  color: #333 !important;
+  font-weight: 500;
+  margin: 0 8px;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #007bff !important;
+  text-decoration: underline;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-collapse {
+  justify-content: space-between;
+}
+
+/* Search and Right Nav Section */
+.d-flex {
+  align-items: center;
+}
+
+.d-flex span {
+  margin-right: 10px;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Cart badge */
+.badge {
+  font-size: 0.75rem;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+
+/* Wishlist icon animation */
+.nav-link i:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  .nav-link {
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .d-flex span, .d-flex a {
+    margin: 5px 0;
+  }
+}

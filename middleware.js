@@ -28,6 +28,11 @@ const validateReview = (req,res,next)=>{
 
 const isLoggedIn = (req,res,next)=>{
     try{
+         // console.log(req.xhr);
+        //  xhr returns if request is ajax or not
+        if(req.xhr && !req.isAuthenticated()){
+            return res.status(401).json({msg:'you need to login first'});
+        }
         if(!req.isAuthenticated()){
             req.flash('error',"Sorry You cannot Access this , Log-in First")
             return res.redirect('/login')

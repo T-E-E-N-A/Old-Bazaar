@@ -1,13 +1,13 @@
 <% layout('layouts/biolerplate') %> 
-<%- include('../partials/navBar') %>
+
 <%- include('../partials/flash') %>  
 <!-- will show msg only when flash hits success and error one of them has length -->
 
 <div class="row">
     <div class="col-lg-6 mt-3">
-        <div class="card shadow mx-auto" style="width: 18rem">
+        <div class="card cardd shadow mx-auto hover-shadow" style="width: 18rem">
             <img src="<%=foundProduct.img%>" class="card-img-top" alt="..." />
-            <div class="card-body">
+            <div class="card-body cardd-body">
                 <h3 class="card-title">
                     <%=foundProduct.name%>
                 </h3>
