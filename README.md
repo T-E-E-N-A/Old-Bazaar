@@ -6,6 +6,10 @@ A vintage-themed e-commerce web application that brings the charm of traditional
 
 👤 User Management : Register, login, and manage user sessions.
 
+🛒 Cart functionality added for smoother checkout flow
+
+💖 Wishlist feature for personalized shopping experience
+
 🧠 MVC Architecture : Clean separation of concerns for scalability.
 
 🎨 Responsive UI : Styled with custom CSS for a vintage bazaar feel.
