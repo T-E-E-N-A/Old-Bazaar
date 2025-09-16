@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "TEENA",
   "license": "ISC",
-  "description": "",
+  "description": "Old-bazaar an e-commerce site",
   "dependencies": {
     "connect-flash": "^0.1.1",
     "dotenv": "^17.2.2",

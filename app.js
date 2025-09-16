@@ -52,7 +52,6 @@ let secret = process.env.SECRET || 'keyboard_cat';
 let configSession = {
     secret : secret,
     name:'old_bazaar',
-    secret: secret,
     resave: false,
     saveUninitialized: true,
     cookie:{

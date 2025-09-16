@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/user/:productId/cart', isLoggedIn , addToCart);
 router.get('/user/cart', isLoggedIn , showCart);
-router.delete('/user/:productId/:userId/dlt',dltProduct)
+router.delete('/user/:productId/:userId/dlt',isLoggedIn , dltProduct)
 
 
 // wishlist route for get post request is here as well
