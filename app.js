@@ -115,9 +115,14 @@ app.get('/', (req, res) => {
 //     res.render('error', { error: 'You are requesting a wrong url!!!' })
 // });
 
-const port = 8080;
+// const port = 8080;
 
-// server connection with particular port id
-app.listen(port,()=>{
-    console.log(`Server started at port ${port}`)
-})
+// // server connection with particular port id
+// app.listen(port,()=>{
+//     console.log(`Server started at port ${port}`)
+// })
+
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server started at port ${port}`);
+});
